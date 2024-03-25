@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+/*import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { User } from 'src/app/user';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +9,7 @@ import { User } from 'src/app/user';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  loadingStatus$: Observable<User[]> | undefined;
+  loadingStatus$: Observable<string> | undefined; // Observable to store loading status
 
   constructor(private http: HttpClient) { }
 
@@ -18,9 +17,11 @@ export class AppComponent implements OnInit {
     this.loadingStatus$ = this.getLoadingStatus();
   }
 
-  getLoadingStatus(): Observable<User[]> {
-    return this.http.get<User[]>('https://jsonplaceholder.typicode.com/todos')
+  getLoadingStatus(): Observable<string> {
+    return this.http.get<any>('https://jsonplaceholder.typicode.com/todos/1')
+      .pipe(
+        map(data => data['title']), // Assuming 'title' is the property containing the loading status
+      );
   }
 }
-
-
+*/
