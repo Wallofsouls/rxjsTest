@@ -7,3 +7,42 @@
     <hr>
   </div>
 </div>
+
+<div *ngIf="loadingStatus2$ | async as details">
+  <p>User ID: {{ details.id }}</p>
+  <p>Email: {{ details.email }}</p>
+  <p>Address: {{ details.address.street }}, {{ details.address.suite }}, {{ details.address.city }}, {{
+    details.address.zipcode }}</p>
+  <p>Geo lat: {{ details.address.geo.lat }}</p>
+  <p>Geo lng: {{ details.address.geo.lng }}</p>
+  <p>Phone: {{ details.phone }}</p>
+  <p>Website: {{ details.website }}</p>
+  <p>Company: {{ details.company.name }}</p>
+  <p>catchPhrase: {{ details.company.catchPhrase }}</p>
+  <p>catchPhrase: {{ details.company.bs }}</p>
+  <hr>
+</div>
+
+<div *ngIf="combinedData$ | async as combinedData">
+
+  <h2>User</h2>
+  <p>Name: {{ combinedData.userDetails.name }}</p>
+  <p>Email: {{ combinedData.userDetails.email }}</p>
+  <p>Website: {{ combinedData.userDetails.website }}</p>
+
+  <h2>User Details</h2>
+  <div>
+    <p>User ID: {{ combinedData.userDetails.id}}</p>
+    <p>Email: {{ combinedData.userDetails.email }}</p>
+    <p>Address: {{ combinedData.userDetails.address.street }}, {{ combinedData.userDetails.address.suite }}, {{
+      combinedData.userDetails.address.city }}, {{
+      combinedData.userDetails.address.zipcode }}</p>
+    <p>Geo lat: {{ combinedData.userDetails.address.geo.lat }}</p>
+    <p>Geo lng: {{ combinedData.userDetails.address.geo.lng }}</p>
+    <p>Phone: {{ combinedData.userDetails.phone }}</p>
+    <p>Website: {{ combinedData.userDetails.website }}</p>
+    <p>Company: {{ combinedData.userDetails.company.name }}</p>
+    <p>catchPhrase: {{ combinedData.userDetails.company.catchPhrase }}</p>
+    <p>bs: {{ combinedData.userDetails.company.bs }}</p>
+  </div>
+</div>
