@@ -1,3 +1,5 @@
+<!-- Descomentar para probar el rendering de las dos fetch por separado
+
 <div *ngIf="loadingStatus$ | async as users">
   <div *ngFor="let u of users">
     <p>User ID: {{ u.userId }}</p>
@@ -22,27 +24,31 @@
   <p>catchPhrase: {{ details.company.bs }}</p>
   <hr>
 </div>
+-->
 
 <div *ngIf="combinedData$ | async as combinedData">
+  <ul>
+    <li *ngFor="let i of combinedData">
+      <h2>User</h2>
+      <p>Id: {{ i.userId }}</p>
+      <p>Title: {{i.title}}</p>
+      <p>Completed: {{ i.completed }}</p>
 
-  <h2>User</h2>
-  <p>Name: {{ combinedData.userDetails.name }}</p>
-  <p>Email: {{ combinedData.userDetails.email }}</p>
-  <p>Website: {{ combinedData.userDetails.website }}</p>
-
-  <h2>User Details</h2>
-  <div>
-    <p>User ID: {{ combinedData.userDetails.id}}</p>
-    <p>Email: {{ combinedData.userDetails.email }}</p>
-    <p>Address: {{ combinedData.userDetails.address.street }}, {{ combinedData.userDetails.address.suite }}, {{
-      combinedData.userDetails.address.city }}, {{
-      combinedData.userDetails.address.zipcode }}</p>
-    <p>Geo lat: {{ combinedData.userDetails.address.geo.lat }}</p>
-    <p>Geo lng: {{ combinedData.userDetails.address.geo.lng }}</p>
-    <p>Phone: {{ combinedData.userDetails.phone }}</p>
-    <p>Website: {{ combinedData.userDetails.website }}</p>
-    <p>Company: {{ combinedData.userDetails.company.name }}</p>
-    <p>catchPhrase: {{ combinedData.userDetails.company.catchPhrase }}</p>
-    <p>bs: {{ combinedData.userDetails.company.bs }}</p>
-  </div>
+      <h2>User Details</h2>
+      <div>
+        <p>User ID: {{ i.userId }}</p>
+        <p>Email: {{ i.email }}</p>
+        <p>Address: {{ i.address.street }}, {{ i.address.suite }}, {{
+          i.address.city }}, {{
+          i.address.zipcode }}</p>
+        <p>Geo lat: {{ i.address.geo.lat }}</p>
+        <p>Geo lng: {{ i.address.geo.lng }}</p>
+        <p>Phone: {{ i.phone }}</p>
+        <p>Website: {{ i.website }}</p>
+        <p>Company: {{ i.company.name }}</p>
+        <p>catchPhrase: {{ i.company.catchPhrase }}</p>
+        <p>bs: {{ i.company.bs }}</p>
+      </div>
+    </li>
+  </ul>
 </div>
